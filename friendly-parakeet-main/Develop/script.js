@@ -14,21 +14,13 @@ function writePassword() {
 }
 
 function generatePassword() {
-  let char =
-    "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%&()*+-./:{}[]";
-  var passwordLength = 12;
-  let password ="";
-
-
-  for (let i = 0; i < char.length; i++) {
-    let randomNumber = Math.floor(Math.random() * char.length);
-    password += char.substring(randomNumber, randomNumber + 80);
-    
-    console.log(password);
-    return password;
+  var length = 8,
+      charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+      retVal = "";
+  for (var i = 0, n = charset.length; i < length; ++i) {
+      retVal += charset.charAt(Math.floor(Math.random() * n));
   }
-  
-  document.getElementById("password").value = password;
+  return retVal;
 }
 
 
